@@ -5,7 +5,6 @@ pipeline {
         stage('build') {
             steps {
                 sh 'go version'
-                sh 'uname -a'
             }
         }
     }
