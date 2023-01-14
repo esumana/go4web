@@ -17,7 +17,7 @@
 }*/
 
 
-node {   
+/*node {   
     stage('Clone repository') {
         git credentialsId: 'github-creds', url: 'https://github.com/esumana/go4web.git'
     }
@@ -31,4 +31,4 @@ node {
         dockerImage.push()
         }
     }*/    
-}
+}*/
