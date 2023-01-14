@@ -17,12 +17,12 @@
 }*/
 
 
-/*node {   
+node {   
     stage('Clone repository') {
         git credentialsId: 'github-creds', url: 'https://github.com/esumana/go4web.git'
     }
-    
-    stage('Build image') {
+}    
+/*    stage('Build image') {
        dockerImage = docker.build("esumana/my-go-httpserver07:go4web")
     }
     
