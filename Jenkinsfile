@@ -19,7 +19,7 @@
 
 node {   
     stage('Clone repository') {
-        git credentialsId: 'git', url: 'https://github.com/esumana/go4web.git'
+        git credentialsId: 'github-PersonalAccessToken', url: 'https://github.com/esumana/go4web.git'
     }
     
     stage('Build image') {
