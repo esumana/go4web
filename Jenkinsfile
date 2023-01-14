@@ -1,5 +1,5 @@
 /* Requires the Docker Pipeline plugin */
-pipeline {
+/*pipeline {
     agent { docker { image 'esumana/my-go-httpserver06:go4web' } }
     environment {
         SERVER_CREDENTIALS = credentials('simpsonumana-dockerhub')
@@ -14,4 +14,21 @@ pipeline {
             }
         }
     }
+}*/
+
+
+node {   
+    stage('Clone repository') {
+        git credentialsId: 'git', url: 'https://github.com/esumana/go4web.git'
+    }
+    
+    stage('Build image') {
+       dockerImage = docker.build("esumana/my-go-httpserver06:go4web.1")
+    }
+    
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "simpsonumana-dockerhub", url: "https://hub.docker.com/" ]) {
+        dockerImage.push()
+        }
+    }    
 }
