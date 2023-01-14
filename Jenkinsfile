@@ -23,7 +23,7 @@ node {
     }
     
     stage('Build image') {
-       dockerImage = docker.build("esumana/my-go-httpserver06:go4web")
+       dockerImage = docker.build("esumana/my-go-httpserver07:go4web")
     }
     
  stage('Push image') {
