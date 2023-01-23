@@ -18,7 +18,13 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying...'
-        sh 'go run main.go'
+        sh 'go build -x main.go'
+      }
+    }
+
+    stage('DockerBuild') {
+      steps {
+        sh 'docker --version'
       }
     }
 
