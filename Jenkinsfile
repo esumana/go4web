@@ -30,7 +30,7 @@ pipeline {
       steps {
         echo 'Login...'
         //sh 'echo $DOCKERHUB_CREDS'
-        sh 'echo $DOCKERHUB_CREDS_PWD | sudo docker login -u esumana --password-stdin'
+        sh 'echo $DOCKERHUB_CREDS_PWD | docker login -u esumana --password-stdin'
       }
     }
 
