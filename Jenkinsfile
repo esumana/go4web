@@ -1,30 +1,30 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Dependencies') {
       steps {
-        echo 'Building...'
+        echo 'Getting dependencies...'
         sh 'go get .'
       }
     }
 
-    stage('Test') {
+    stage('GoVersion') {
       steps {
         echo 'Testing...'
         sh 'go version'
       }
     }
 
-    stage('Deploy') {
+    stage('DockerVersion') {
       steps {
-        echo 'Deploying...'
-        sh 'go build -x main.go'
+        sh 'docker --version'
       }
     }
 
-    stage('DockerBuild') {
+    stage('GoBuild') {
       steps {
-        sh 'docker --version'
+        echo 'Deploying...'
+        sh 'go build -x main.go'
       }
     }
 
