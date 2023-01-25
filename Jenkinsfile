@@ -39,7 +39,7 @@ pipeline {
       steps {
         echo 'DockerBuild...'
         //sh 'docker build -t go4web:1.0 .'
-        sh 'docker images ls'
+        sh 'sudo docker images ls'
       }
     }
 
