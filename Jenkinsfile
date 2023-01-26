@@ -31,7 +31,7 @@ pipeline {
         echo 'Login...'
         //sh 'echo $DOCKERHUB_CREDS_PWD'
         sh 'echo $DOCKERHUB_CREDS_USR'
-        sh 'echo ${{env.DOCKERHUB_CREDS_PWD | docker login -u ${{env.$DOCKERHUB_CREDS_USR}} --password-stdin'
+        sh 'echo ${{ env.DOCKERHUB_CREDS_PWD }} | docker login -u ${{ env.$DOCKERHUB_CREDS_USR }} --password-stdin'
       }
     }
 
