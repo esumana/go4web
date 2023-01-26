@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKERCREDS = credentials('dockerhub-token')
+    DOCKERCREDS = credentials('github-creds')
   }
   stages {
     //stage('Dependencies') {
