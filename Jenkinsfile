@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKERHUB_CREDS = credentials('github-creds')
+    DOCKERHUB_CREDS = credentials('dockerhub-token')
   }
   stages {
     //stage('Dependencies') {
@@ -18,44 +18,44 @@ pipeline {
     //    sh 'docker --version'
     //  }
     //}
-
-    stage('GoBuild') {
-      steps {
-        echo 'Building go...'
-        sh 'go build -x main.go'
-      }
-    }
+//
+    //stage('GoBuild') {
+    //  steps {
+    //    echo 'Building go...'
+    //    sh 'go build -x main.go'
+    //  }
+    //}
 
     stage('DockerLogin') {
       steps {
         echo 'Login...'
-        sh 'echo $DOCKERHUB_CREDS_PWD'
-        sh 'echo $DOCKERHUB_CREDS_USR'
-        //sh 'docker login'
+        //sh 'echo $DOCKERHUB_CREDS_PWD'
+        //sh 'echo $DOCKERHUB_CREDS_USR'
+        sh 'echo DOCKERHUB_CREDS_PWD | docker -D login -u $DOCKERHUB_CREDS_USR --password-stdin'
       }
     }
 
-    stage('DockerBuild') {
-      steps {
-        echo 'DockerBuild...'
-        //sh 'docker build -t go4web:1.0 .'
-        sh 'sudo docker images ls'
-      }
-    }
-
+    //stage('DockerBuild') {
+    //  steps {
+    //    echo 'DockerBuild...'
+    //    //sh 'docker build -t go4web:1.0 .'
+    //    sh 'docker build -t esumana/go4web:1.0 .'
+    //    sh 'sudo docker images'
+    //  }
+    //}
+//
     //stage('DockerImagesTag') {
     //  steps {
     //    echo 'TagingImage...'
     //    sh 'docker tag go4web:1.0 esumana/go4web:1.0'
     //  }
     //}
-
-    stage('DockerPush') {
-      steps {
-        echo 'PushingImage...'
-        sh 'docker push esumana/go4web:1.0'
-      }
-    }
-
+//
+    //stage('DockerPush') {
+    //  steps {
+    //    echo 'PushingImage...'
+    //    sh 'docker push esumana/go4web:1.0'
+    //  }
+    //}
   }
 }
