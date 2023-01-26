@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKERHUB_CREDS = credentials('dockerhub-token')
+    DOCKERHUB_CREDS = credentials('simpsonumana-dockerhub')
   }
   stages {
     //stage('Dependencies') {
