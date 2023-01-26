@@ -31,7 +31,7 @@ pipeline {
         echo 'Login...'
         //sh 'echo $DOCKERHUB_CREDS_PWD'
         sh 'echo $DOCKERHUB_CREDS_USR'
-        sh 'echo DOCKERHUB_CREDS_PWD | sudo -S docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
+        sh 'echo DOCKERHUB_CREDS_PWD | sudo docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
       }
     }
 
