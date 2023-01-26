@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    DOCKERHUB_CREDS = credentials('	simpsonumana-dockerhub')
+    DOCKERHUB_CREDS = credentials('dockerhub-token')
   }
   stages {
     //stage('Dependencies') {
@@ -31,7 +31,7 @@ pipeline {
         echo 'Login...'
         //sh 'echo $DOCKERHUB_CREDS_PWD'
         sh 'echo $DOCKERHUB_CREDS_USR'
-        sh 'echo DOCKERHUB_CREDS_PWD | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
+        sh 'echo $DOCKERHUB_CREDS_PWD | docker login -u $DOCKERHUB_CREDS_USR --password-stdin'
       }
     }
 
