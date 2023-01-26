@@ -1,8 +1,8 @@
 pipeline {
   agent any
-  environment {
-    DOCKERCREDS = credentials('github-creds')
-  }
+  //environment {
+  //  DOCKERCREDS = credentials('github-creds')
+  //}
   stages {
     //stage('Dependencies') {
     //  steps {
@@ -19,43 +19,43 @@ pipeline {
     //  }
     //}
 //
-    //stage('GoBuild') {
-    //  steps {
-    //    echo 'Building go...'
-    //    sh 'go build -x main.go'
-    //  }
-    //}
-
-    stage('DockerLogin') {
+    stage('GoBuild') {
       steps {
-        echo 'Login...'
-        //sh 'echo $DOCKERHUB_CREDS_PWD'
-        sh 'echo $DOCKERHUB_CREDS_USR'
-        sh 'echo $DOCKERCREDS_PWD | docker login -u $DOCKERCREDS_USR --password-stdin'
+        echo 'Building go...'
+        sh 'go build -x main.go'
       }
     }
 
-    //stage('DockerBuild') {
+    //stage('DockerLogin') {
     //  steps {
-    //    echo 'DockerBuild...'
-    //    //sh 'docker build -t go4web:1.0 .'
-    //    sh 'docker build -t esumana/go4web:1.0 .'
-    //    sh 'sudo docker images'
+    //    echo 'Login...'
+    //    //sh 'echo $DOCKERHUB_CREDS_PWD'
+    //    sh 'echo $DOCKERHUB_CREDS_USR'
+    //    sh 'echo $DOCKERCREDS_PWD | docker login -u $DOCKERCREDS_USR --password-stdin'
     //  }
     //}
+
+    stage('DockerBuild') {
+      steps {
+        echo 'DockerBuild...'
+        //sh 'docker build -t go4web:1.0 .'
+        sh 'docker build -t esumana/go4web:1.0 .'
+        sh 'docker images'
+      }
+    }
 //
-    //stage('DockerImagesTag') {
-    //  steps {
-    //    echo 'TagingImage...'
-    //    sh 'docker tag go4web:1.0 esumana/go4web:1.0'
-    //  }
-    //}
+    stage('DockerImagesTag') {
+      steps {
+        echo 'TagingImage...'
+        sh 'docker tag go4web:1.0 esumana/go4web:1.0'
+      }
+    }
 //
-    //stage('DockerPush') {
-    //  steps {
-    //    echo 'PushingImage...'
-    //    sh 'docker push esumana/go4web:1.0'
-    //  }
-    //}
+    stage('DockerPush') {
+      steps {
+        echo 'PushingImage...'
+        sh 'docker push esumana/go4web:1.0'
+      }
+    }
   }
 }
