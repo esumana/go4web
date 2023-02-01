@@ -57,5 +57,13 @@ pipeline {
         sh 'docker push esumana/go4web:1.0'
       }
     }
+
+    stage('Versions') {
+      steps {
+        echo 'Versions...'
+        sh 'kubectl version'
+        sh 'docker --version'
+      }
+    }
   }
 }
