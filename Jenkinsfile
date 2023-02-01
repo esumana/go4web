@@ -47,14 +47,14 @@ pipeline {
     stage('DockerImagesTag') {
       steps {
         echo 'TagingImage...'
-        sh 'docker tag go4web:1.0 esumana/go4web:1.0'
+        sh 'docker tag go4web:1.0 esumana/go4web:1.1'
       }
     }
 //
     stage('DockerPush') {
       steps {
         echo 'PushingImage...'
-        sh 'docker push esumana/go4web:1.0'
+        sh 'docker push esumana/go4web:1.1'
       }
     }
 
