@@ -1,6 +1,7 @@
 pipeline {
   //agent any
   // agent { label 'jenkins-kubectl' }
+  // Hello there
   agent { label 'jagent1' }
   //environment {
   //  DOCKERCREDS = credentials('github-creds')
