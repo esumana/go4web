@@ -1,9 +1,10 @@
 pipeline {
   //agent any
+  //agent any
   // agent { label 'jenkins-kubectl' }
   agent { label 'jagent1' }
   //environment {
-  //  DOCKERCREDS = credentials('github-creds')
+  //  DOCKERCREDS = credentials('JENKINS-GITHUB-INTEGRATION-USING-PRIKEY-PUBKEY')
   //}
   stages {
     //stage('Dependencies') {
