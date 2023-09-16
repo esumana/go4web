@@ -2,9 +2,9 @@ pipeline {
   //agent any
   // agent { label 'jenkins-kubectl' }
   agent { label 'jagent1' }
-  //environment {
-  //  DOCKERCREDS = credentials('JENKINS-GITHUB-INTEGRATION-USING-PRIKEY-PUBKEY')
-  //}
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('JENKINS-GITHUB-INTEGRATION-USING-PRIKEY-PUBKEY')
+  }
   stages {
     //stage('Dependencies') {
     //  steps {
@@ -28,20 +28,20 @@ pipeline {
       }
     }
 
-    //stage('DockerLogin') {
-    //  steps {
-    //    echo 'Login...'
-    //    //sh 'echo $DOCKERHUB_CREDS_PWD'
-    //    sh 'echo $DOCKERHUB_CREDS_USR'
-    //    sh 'echo $DOCKERCREDS_PWD | docker login -u $DOCKERCREDS_USR --password-stdin'
-    //  }
-    //}
+    stage('DockerLogin') {
+      steps {
+        echo 'Login...'
+        //sh 'echo $DOCKERHUB_CREDS_PWD'
+        sh 'echo $DOCKERHUB_CREDS_USR'
+        sh 'echo $DOCKERHUB_CREDENTIALS_PWD | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
 
     stage('DockerBuild') {
       steps {
         echo 'DockerBuild...'
         //sh 'docker build -t go4web:1.0 .'
-        sh 'docker build -t go4web:1.0 .'
+        sh 'docker build -t go4web:1.2 .'
         sh 'docker images'
       }
     }
@@ -49,14 +49,14 @@ pipeline {
     stage('DockerImagesTag') {
       steps {
         echo 'TagingImage...'
-        sh 'docker tag go4web:1.0 esumana/go4web:1.1'
+        sh 'docker tag go4web:2.0 esumana/go4web:1.2'
       }
     }
 //
     stage('DockerPush') {
       steps {
         echo 'PushingImage...'
-        sh 'docker push esumana/go4web:1.1'
+        sh 'docker push esumana/go4web:1.2'
       }
     }
 
