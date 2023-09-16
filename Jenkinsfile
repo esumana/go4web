@@ -1,6 +1,5 @@
 pipeline {
   //agent any
-  //agent any
   // agent { label 'jenkins-kubectl' }
   agent { label 'jagent1' }
   //environment {
