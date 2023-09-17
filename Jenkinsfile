@@ -1,74 +1,74 @@
 pipeline {
   //agent any
-  // agent { label 'jenkins-kubectl' }
-  // Let's see!
-  agent { label 'jagent1' }
+  // agent { label "jenkins-kubectl" }
+  // Let"s see!
+  agent { label "jagent1" }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials("dockerhub")
   }
   stages {
-    //stage('Dependencies') {
+    //stage("Dependencies") {
     //  steps {
-    //    echo 'Getting dependencies...'
-    //    sh 'go get .'
+    //    echo "Getting dependencies..."
+    //    sh "go get ."
     //  }
     //}
 //
-    //stage('Versions') {
+    //stage("Versions") {
     //  steps {
-    //    echo 'Versions...'
-    //    sh 'go version'
-    //    sh 'docker --version'
+    //    echo "Versions..."
+    //    sh "go version"
+    //    sh "docker --version"
     //  }
     //}
 //
-    stage('GoBuild') {
+    stage("GoBuild") {
       steps {
-        echo 'Building go...'
-        sh 'go build -x main.go'
+        echo "Building go..."
+        sh "go build -x main.go"
       }
     }
 
-    stage('DockerLogin') {
+    stage("DockerLogin") {
       steps {
-        echo 'Login...'
-        //sh 'echo $DOCKERHUB_CREDS_PWD'
-        sh 'echo $DOCKERHUB_CREDS_USR'
+        echo "Login..."
+        //sh "echo $DOCKERHUB_CREDS_PWD"
+        sh "echo $DOCKERHUB_CREDS_USR"
         sh "echo $DOCKERHUB_CREDENTIALS_PWD | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
-        //sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR --password $DOCKERHUB_CREDENTIALS_PWD'
+        //sh "docker login -u $DOCKERHUB_CREDENTIALS_USR --password $DOCKERHUB_CREDENTIALS_PWD"
       }
     }
 
-    stage('DockerBuild') {
+    stage("DockerBuild") {
       steps {
-        echo 'DockerBuild...'
-        //sh 'docker build -t go4web:1.0 .'
-        sh 'docker build -t go4web:1.2 .'
-        sh 'docker images'
+        echo "DockerBuild..."
+        //sh "docker build -t go4web:1.0 ."
+        sh "docker build -t go4web:1.2 ."
+        sh "docker images"
       }
     }
 //
-    stage('DockerImagesTag') {
+    stage("DockerImagesTag") {
       steps {
-        echo 'TagingImage...'
-        sh 'docker tag go4web:2.0 esumana/go4web:1.2'
+        echo "TagingImage..."
+        sh "docker tag go4web:2.0 esumana/go4web:1.2"
       }
     }
 //
-    stage('DockerPush') {
+    stage("DockerPush") {
       steps {
-        echo 'PushingImage...'
-        sh 'docker push esumana/go4web:1.2'
+        echo "PushingImage..."
+        sh "docker push esumana/go4web:1.2"
       }
     }
 
-    stage('Versions') {
+    stage("Versions") {
       steps {
-        echo 'Versions...'
-        sh 'go version'
-        sh  'docker version'
-        //sh 'kubectl version'
-        //sh 'docker --version'
+        echo "Versions..."
+        sh "go version"
+        sh  "docker version"
+        //sh "kubectl version"
+        //sh "docker --version"
       }
     }
   }
