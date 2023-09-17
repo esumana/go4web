@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 # Alpine is chosen for its small footprint
 # compared to Ubuntu
+#Let's go!!!
 FROM golang:1.19-alpine
 
 WORKDIR /app
