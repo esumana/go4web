@@ -21,7 +21,7 @@ pipeline {
     //    sh "docker --version"
     //  }
     //}
-//
+
     stage("GoBuild") {
       steps {
         echo "Building go..."
