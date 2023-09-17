@@ -64,7 +64,7 @@ pipeline {
 
     stage("Versions") {
       steps {
-        sh sudo "echo Versions..."
+        sh "sudo echo Versions..."
         sh "sudo go version"
         sh "sudo docker version"
         //sh "kubectl version"
