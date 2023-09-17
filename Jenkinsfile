@@ -3,9 +3,9 @@ pipeline {
   // agent { label "jenkins-kubectl" }
   // Let"s see!
   agent { label "jagent1" }
-  //environment {
-    //DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-  //}
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
   stages {
     //stage("Dependencies") {
     //  steps {
