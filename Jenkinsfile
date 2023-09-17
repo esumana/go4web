@@ -1,7 +1,7 @@
 pipeline {
   //agent any
   // agent { label 'jenkins-kubectl' }
-  // Let's see if this works!
+  // Let's see!
   agent { label 'jagent1' }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('JENKINS-GITHUB-INTEGRATION-USING-PRIKEY-PUBKEY')
