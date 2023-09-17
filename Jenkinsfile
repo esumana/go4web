@@ -34,10 +34,6 @@ pipeline {
         sh "echo Login..."
         //sh "echo $DOCKERHUB_CREDS_PWD"
         //sh "echo $DOCKERHUB_CREDS_USR"
-        script {
-          docker.withRegistry( '', $DOCKERHUB_CREDENTIALS ) {
-          //dockerImage.push()
-        }
         //sh('echo $DOCKERHUB_CREDENTIALS_PWD | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin')
         //sh('docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PWD')
       }
