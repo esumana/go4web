@@ -39,28 +39,28 @@ pipeline {
       }
     }
 
-    stage("DockerBuild") {
-      steps {
-        echo "DockerBuild..."
-        //sh "docker build -t go4web:1.0 ."
-        sh "docker build -t go4web:1.2 ."
-        sh "docker images"
-      }
-    }
+    //stage("DockerBuild") {
+    //  steps {
+    //    echo "DockerBuild..."
+    //    //sh "docker build -t go4web:1.0 ."
+    //    sh "docker build -t go4web:1.2 ."
+    //    sh "docker images"
+    //  }
+    //}
 //
-    stage("DockerImagesTag") {
-      steps {
-        echo "TagingImage..."
-        sh "docker tag go4web:2.0 esumana/go4web:1.2"
-      }
-    }
+    //stage("DockerImagesTag") {
+    //  steps {
+    //    echo "TagingImage..."
+    //    sh "docker tag go4web:2.0 esumana/go4web:1.2"
+    //  }
+    //}
 //
-    stage("DockerPush") {
-      steps {
-        echo "PushingImage..."
-        sh "docker push esumana/go4web:1.2"
-      }
-    }
+   // stage("DockerPush") {
+   //   steps {
+   //     echo "PushingImage..."
+   //     sh "docker push esumana/go4web:1.2"
+   //   }
+   // }
 
     stage("Versions") {
       steps {
