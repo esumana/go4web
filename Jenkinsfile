@@ -66,7 +66,7 @@ pipeline {
       steps {
         sh "echo Versions..."
         sh "go version"
-        sh "echo monza1 | sudo docker version --password-stdin"
+        sh "docker version"
         //sh "kubectl version"
         //sh "docker --version"
       }
