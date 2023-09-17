@@ -4,7 +4,7 @@ pipeline {
   // Let's see!
   agent { label 'jagent1' }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('GitHubCredsUsedInJenken')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
     //stage('Dependencies') {
