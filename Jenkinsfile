@@ -4,7 +4,7 @@ pipeline {
   // Let's see!
   agent { label 'jagent1' }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('JENKINS-GITHUB-INTEGRATION-USING-PRIKEY-PUBKEY')
+    DOCKERHUB_CREDENTIALS = credentials('GitHubCredsUsedInJenken')
   }
   stages {
     //stage('Dependencies') {
