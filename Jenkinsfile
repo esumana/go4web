@@ -3,9 +3,9 @@ pipeline {
   // agent { label "jenkins-kubectl" }
   // Let"s see!
   agent { label "jagent1" }
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-  }
+  //environment {
+    //DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  //}
   stages {
     //stage("Dependencies") {
     //  steps {
@@ -34,7 +34,7 @@ pipeline {
         sh "echo Login..."
         //sh "echo $DOCKERHUB_CREDS_PWD"
         //sh "echo $DOCKERHUB_CREDS_USR"
-        sh('echo ${DOCKERHUB_CREDENTIALS_PWD} | docker login -u ${DOCKERHUB_CREDENTIALS_USR} --password-stdin')
+        sh('echo $DOCKERHUB_CREDENTIALS_PWD | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin')
         //sh('docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PWD')
       }
     }
