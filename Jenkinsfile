@@ -69,6 +69,9 @@ pipeline {
         sh "docker version"
         sh 'kubectl version'
         sh 'docker version'
+        kubeconfig(credentialsId: 'JENKINS-CONNECT-TO-REMOTE-K8S', serverUrl: '') {
+         sh 'kubectl get nodes'
+        }
       }
     }
   }
