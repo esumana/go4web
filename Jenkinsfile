@@ -51,7 +51,7 @@ pipeline {
     stage("DockerImagesTag") {
       steps {
         echo "TagingImage..."
-        sh "docker tag go4web:2.0 esumana/go4web:1.2"
+        sh "docker tag go4web:1.2 esumana/go4web:1.2"
       }
     }
 //
