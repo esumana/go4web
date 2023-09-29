@@ -7,12 +7,12 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
-    //stage("Dependencies") {
-    //  steps {
-    //    echo "Getting dependencies..."
-    //    sh "go get ."
-    //  }
-    //}
+    stage("Dependencies") {
+      steps {
+        echo "Getting dependencies..."
+        sh "go get ."
+      }
+    }
 //
     //stage("Versions") {
     //  steps {
