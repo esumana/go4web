@@ -67,8 +67,8 @@ pipeline {
         sh "echo Versions..."
         sh "go version"
         sh "docker version"
-        //sh "kubectl version"
-        //sh "docker --version"
+        sh "kubectl version"
+        sh "docker version"
       }
     }
   }
