@@ -65,10 +65,10 @@ pipeline {
     stage("Versions") {
       steps {
         sh "echo Versions..."
-        sh "go version"
+        sh 'go version'
         sh "docker version"
-        sh "kubectl version"
-        sh "docker version"
+        sh 'kubectl version'
+        sh 'docker version'
       }
     }
   }
