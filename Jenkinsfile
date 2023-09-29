@@ -6,9 +6,9 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
-  kubeconfig(credentialsId: 'JENKINS-CONNECT-TO-REMOTE-K8S', serverUrl: '') {
-         sh 'kubectl get nodes'
-  }
+  //kubeconfig(credentialsId: 'JENKINS-CONNECT-TO-REMOTE-K8S', serverUrl: '') {
+  //       sh 'kubectl get nodes'
+  //}
   stages {
     stage("Dependencies") {
       steps {
