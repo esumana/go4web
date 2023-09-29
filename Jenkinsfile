@@ -13,7 +13,7 @@ pipeline {
         sh "go get ."
       }
     }
-//
+
     stage("DockerVersions") {
       steps {
         echo "Versions..."
