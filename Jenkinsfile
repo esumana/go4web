@@ -14,7 +14,7 @@ pipeline {
       }
     }
 //
-    stage("Versions") {
+    stage("DockerVersions") {
       steps {
         echo "Versions..."
         sh "go version"
