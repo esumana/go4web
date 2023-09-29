@@ -55,12 +55,12 @@ pipeline {
       }
     }
 //
-   // stage("DockerPush") {
-   //   steps {
-   //     echo "PushingImage..."
-   //     sh "docker push esumana/go4web:1.2"
-   //   }
-   // }
+    stage("DockerPush") {
+      steps {
+        echo "PushingImage..."
+        sh "docker push esumana/go4web:1.2"
+      }
+    }
 
     stage("Versions") {
       steps {
