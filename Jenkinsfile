@@ -47,7 +47,7 @@ pipeline {
         sh "docker images"
       }
     }
-//
+
     stage("DockerImagesTag") {
       steps {
         echo "TagingImage..."
