@@ -14,13 +14,13 @@ pipeline {
       }
     }
 //
-    //stage("Versions") {
-    //  steps {
-    //    echo "Versions..."
-    //    sh "go version"
-    //    sh "docker --version"
-    //  }
-    //}
+    stage("Versions") {
+      steps {
+        echo "Versions..."
+        sh "go version"
+        sh "docker --version"
+      }
+    }
 //
     stage("GoBuild") {
       steps {
