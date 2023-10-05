@@ -1,8 +1,8 @@
 pipeline {
-  //agent any
+  agent any
   // agent { label "jenkins-kubectl" }
   // Let"s see!
-  agent { label "jagent1" }
+  //agent { label "jagent1" }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
